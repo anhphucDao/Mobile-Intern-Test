@@ -47,7 +47,7 @@ struct ContentView: View {
                         ), in: 0...4, step: 1)}
                     
                     
-                    Section(header: Text("Conversions"), footer: Text(viewModel.convertedAmount.isEmpty ? (viewModel.errorMessage ?? "") : "")
+                    Section(header: Text("Conversions"), footer: Text(viewModel.errorMessage ?? "")
                         .foregroundColor(.red)
                         .font(.footnote)
                         .padding(.top, 5)

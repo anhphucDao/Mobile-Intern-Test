@@ -25,7 +25,7 @@ class CurrencyConverterViewModel: ObservableObject {
     @Published var isLoadingRates: Bool = false
     @Published var errorMessage: String? = nil
     
-    private let apiKey = "7a1409d7acfc6084f634a04666da7a3a"
+    private let apiKey = "c133c298e69be24ad8f8b9f939547577"
     private let baseAPI = "https://api.exchangeratesapi.io/v1"
     
     private var cancellables = Set<AnyCancellable>()
@@ -104,6 +104,11 @@ class CurrencyConverterViewModel: ObservableObject {
             errorMessage = "Plesae enter a valid numeric amount."
             return
         }
+        
+        if amountValue > 0 {
+            errorMessage = nil
+        }
+        
         
         guard baseCurrency != targetCurrency else {
             errorMessage = "Please choose two different currencies"
