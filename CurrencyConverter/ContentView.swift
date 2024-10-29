@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         
         if viewModel.isLoading {
-            ProgressView("Fetching data, just for you")
+            ProgressView("Fetching data, just for you. Hang tight...")
         }
         
         else {
