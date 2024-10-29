@@ -47,7 +47,7 @@ The Currency Converter app follows the MVVM (Model-View-ViewModel) architecture.
 
 - Below are some screenshots of the app:
 
-![Screenshot 1](images/InApp.png)
-![Screenshot 2](images/currency%20selection.png)
-![Screenshot 3](images/errorHandling.png)
-![Screenshot 4](images/loading.png)
+![Screenshot 1](Images/InApp.png)
+![Screenshot 2](Images/currency%20selection.png)
+![Screenshot 3](Images/errorHandling.png)
+![Screenshot 4](Images/loading.png)
