@@ -36,6 +36,8 @@ The Currency Converter app follows the MVVM (Model-View-ViewModel) architecture.
 ## Additional Notes or Challenges Encountered
 - **API Key**: The app uses the free version of the exchangeratesapi API, which has some limitations. The app is limited to 100 requests per month. So if the app is used frequently, it may hit the rate limit and stop working.
 
+- **Testing**: The app includes unit tests for the `CurrencyConverterViewModel`. Also includes UI tests for the `ContentView`. The UI tests are not exhaustive and can be improved by adding more test cases.
+
 - **Currency Symbols**: The app fetches the currency symbols from the API to display the correct currency symbols in the UI. Also use another API to fetch the exchange rates. Note that we can not directly use the convert API to fetch the exchange rates as it requires a paid subscription.
 
 - **Error Handling**: The app handles errors such as network errors, API errors, and invalid user input. It displays appropriate error messages to the user and provides feedback on what went wrong.
