@@ -39,11 +39,13 @@ The Currency Converter app follows the MVVM (Model-View-ViewModel) architecture.
 - **Currency Symbols**: The app fetches the currency symbols from the API to display the correct currency symbols in the UI. Also use another API to fetch the exchange rates. Note that we can not directly use the convert API to fetch the exchange rates as it requires a paid subscription.
 
 - **Error Handling**: The app handles errors such as network errors, API errors, and invalid user input. It displays appropriate error messages to the user and provides feedback on what went wrong.
+
+- **Network disconnectivity**: The app handles network disconnectivity by showing an alert to the user.
  
 - **UI/UX**: The app has a clean and simple UI that allows users to easily input amounts, select currencies, and see the conversion results. The UI is responsive and adapts to different screen sizes and orientations.
 
 ## Video Demonstration
-- A video demonstration of the app is available [here](https://drive.google.com/file/d/1qFIngqnsq_9fGTqbtuxaIqr68C79XyZf/view?usp=sharing).
+- A video demonstration of the app is available [here](https://drive.google.com/file/d/196SAud_6NVpL76gqhWHjb5tKgh0_sOFP/view?usp=drivesdk).
 
 - Below are some screenshots of the app:
 
@@ -51,3 +53,4 @@ The Currency Converter app follows the MVVM (Model-View-ViewModel) architecture.
 ![Screenshot 2](Images/currency%20selection.png)
 ![Screenshot 3](Images/errorHandling.png)
 ![Screenshot 4](Images/loading.png)
+![Screenshot 5](Images/networkError.png)
