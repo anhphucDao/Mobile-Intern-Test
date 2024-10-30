@@ -12,10 +12,17 @@ struct ContentView: View {
     @StateObject private var viewModel = CurrencyConverterViewModel()
     
     var body: some View {
-        
-        if viewModel.isLoading {
-            ProgressView("Fetching data, just for you. Hang tight...")
-        }
+
+        VStack{
+            if !viewModel.isConnected {
+                Text("No internet connection. Please check your network settings.")
+                    .foregroundColor(.orange)
+                    .multilineTextAlignment(.center)
+                    .padding()
+            } else {
+                if viewModel.isLoading {
+                    ProgressView("Fetching data, just for you. Hang tight...")
+                }
         
         else {
             NavigationView{
@@ -78,6 +85,10 @@ struct ContentView: View {
             .padding(.horizontal)
             .frame(maxWidth: .infinity, alignment: .center)
         }
+            }
+        }
+        
+        
     }
 }
 

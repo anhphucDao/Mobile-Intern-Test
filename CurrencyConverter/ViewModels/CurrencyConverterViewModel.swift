@@ -20,6 +20,7 @@ class CurrencyConverterViewModel: ObservableObject {
 
     @Published var symbols: [String: String] = [:]
 
+    @Published var isConnected: Bool = true
     @Published var isLoading: Bool = false
     @Published var isLoadingSymbols: Bool = false
     @Published var isLoadingRates: Bool = false
@@ -29,21 +30,42 @@ class CurrencyConverterViewModel: ObservableObject {
     private let baseAPI = "https://api.exchangeratesapi.io/v1"
     
     private var cancellables = Set<AnyCancellable>()
-    
-    init () {
+    private var networkMonitor = NetworkMonitor()
+
+    init() {
+        networkMonitor.$isConnected
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isConnected in
+                guard let self = self else { return }
+                        self.isConnected = isConnected
+                if isConnected {
+                    Task {
+                     self.isLoading = true
+                    print("Starting data refresh...")
+                    await self.refreshData()
+                    self.isLoading = false
+                    print("Data refresh completed.")
+                    }
+                }
+            }
+            .store(in: &cancellables)
+        
         Task {
             isLoading = true
-            await fetchSymbols()
-            await fetchExchangeRates()
+            await refreshData()
             isLoading = false
         }
     }
 
     func refreshData() async {
+        guard isConnected else {
+            errorMessage = "No internet connection. Please check your network settings."
+            return
+        }
+        
         await fetchSymbols()
         await fetchExchangeRates()
     }
-
     func fetchSymbols() async {
         isLoadingSymbols = true
         errorMessage = nil
